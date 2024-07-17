@@ -1,31 +1,42 @@
 <template>
   <div class="home">
-    <section class="banner">
+    <!-- Banner Section -->
+    <section class="banner d-flex align-items-center justify-content-center text-center text-white">
       <div class="banner-content">
-        <h1>Bienvenue chez GreenWild</h1>
-        <p>Participez à nos activités pour un monde plus propre!</p>
-        <button @click="joinUs">Rejoignez-nous</button>
+        <h1 class="display-4">Bienvenue chez GreenWild</h1>
+        <p class="lead">Participez à nos activités pour un monde plus propre!</p>
+        <button class="btn btn-success btn-lg" @click="joinUs">Rejoignez-nous</button>
       </div>
     </section>
 
-    <section class="about">
-      <h2>Qui sommes-nous?</h2>
-      <p>Nous sommes une association dédiée à la préservation de l'environnement par le nettoyage des espaces naturels.</p>
+    <!-- About Section -->
+    <section class="container my-5 text-center">
+      <h2 class="mb-4">Qui sommes-nous?</h2>
+      <p class="lead">Nous sommes une association dédiée à la préservation de l'environnement par le nettoyage des espaces naturels.</p>
     </section>
 
-    <section class="statistics">
-      <h2>Impact de Nos Actions</h2>
-      <div class="stat-item">
-        <span class="number" v-scroll-animation="50">50+</span>
-        <span class="desc">Balades organisées</span>
-      </div>
-      <div class="stat-item">
-        <span class="number" v-scroll-animation="1000">1,000kg</span>
-        <span class="desc">Déchets collectés</span>
-      </div>
-      <div class="stat-item">
-        <span class="number" v-scroll-animation="500">500</span>
-        <span class="desc">Volontaires actifs</span>
+    <!-- Statistics Section -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Impact de Nos Actions</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="stat-item p-4 bg-light rounded shadow">
+            <span class="number display-4">50+</span>
+            <span class="desc d-block mt-2">Balades organisées</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="stat-item p-4 bg-light rounded shadow">
+            <span class="number display-4">1,000kg</span>
+            <span class="desc d-block mt-2">Déchets collectés</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="stat-item p-4 bg-light rounded shadow">
+            <span class="number display-4">500</span>
+            <span class="desc d-block mt-2">Volontaires actifs</span>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -38,20 +49,6 @@ export default {
     joinUs() {
       this.$router.push('/join');
     }
-  },
-  directives: {
-    scrollAnimation: {
-      inserted: (el, binding) => {
-        let f = () => {
-          let rect = el.getBoundingClientRect();
-          if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-            el.textContent = binding.value;
-            window.removeEventListener('scroll', f);
-          }
-        };
-        window.addEventListener('scroll', f);
-      }
-    }
   }
 }
 </script>
@@ -59,55 +56,17 @@ export default {
 <style scoped>
 .home .banner {
   background: url('@/assets/banner.webp') no-repeat center center/cover;
-  text-align: center;
-  padding: 100px 20px;
-  color: white;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;
 }
 
-.banner-content {
-  max-width: 600px;
-}
-
-.home .about, .home .statistics {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.statistics .stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-}
-
-.number {
-  font-size: 3em;
+.stat-item .number {
+  font-size: 2.5em;
   font-weight: bold;
   color: #4CAF50;
 }
 
-.desc {
+.stat-item .desc {
   font-size: 1.2em;
-  margin-top: 5px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #367c39;
+  color: #555;
 }
 </style>
