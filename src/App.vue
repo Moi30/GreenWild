@@ -34,7 +34,7 @@
 </template>
 
 <style>
-nav .navbar-brand img {
+nav .navbar-brand {
   transition: transform 0.3s ease;
 }
 
@@ -56,7 +56,6 @@ nav .navbar-brand img:hover {
   color: #4CAF50;
 }
 
-/* Custom styles for toggler */
 .navbar-toggler {
   border-color: #4CAF50;
 }
@@ -65,11 +64,20 @@ nav .navbar-brand img:hover {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%234CAF50' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Centering the navbar items with less spacing */
+/* Adjustments for centering and responsive behavior */
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .navbar-nav {
-  display: flex;
-  justify-content: space-between; /* Adjusts space between links more tightly */
-  align-items: center;
-  padding: 0 10%; /* Adds padding to left and right to avoid touching the screen edges */
+  width: 100%;
+  justify-content: space-around;
+}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    justify-content: center;
+  }
 }
 </style>
