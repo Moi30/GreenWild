@@ -15,28 +15,53 @@
       <p class="lead">Nous sommes une association dédiée à la préservation de l'environnement par le nettoyage des espaces naturels.</p>
     </section>
 
+    <!-- Activities Section -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Nos Activités</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" v-for="activity in activities" :key="activity.title">
+          <div class="card h-100 shadow-sm">
+            <img :src="activity.image" class="card-img-top" alt="Activity image">
+            <div class="card-body">
+              <h3 class="card-title">{{ activity.title }}</h3>
+              <p class="card-text">{{ activity.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Statistics Section -->
     <section class="container my-5">
       <h2 class="text-center mb-4">Impact de Nos Actions</h2>
       <div class="row">
         <div class="col-md-4 mb-4">
-          <div class="stat-item p-4 bg-light rounded shadow">
+          <div class="stat-item p-4 bg-light rounded shadow text-center">
             <span class="number display-4">50+</span>
             <span class="desc d-block mt-2">Balades organisées</span>
           </div>
         </div>
         <div class="col-md-4 mb-4">
-          <div class="stat-item p-4 bg-light rounded shadow">
+          <div class="stat-item p-4 bg-light rounded shadow text-center">
             <span class="number display-4">1,000kg</span>
             <span class="desc d-block mt-2">Déchets collectés</span>
           </div>
         </div>
         <div class="col-md-4 mb-4">
-          <div class="stat-item p-4 bg-light rounded shadow">
+          <div class="stat-item p-4 bg-light rounded shadow text-center">
             <span class="number display-4">500</span>
             <span class="desc d-block mt-2">Volontaires actifs</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta bg-success text-white text-center py-5">
+      <div class="container">
+        <h2 class="mb-4">Prêt à faire la différence ?</h2>
+        <p class="lead mb-4">Rejoignez-nous et participez à nos activités pour un environnement plus propre et plus sain.</p>
+        <button class="btn btn-light btn-lg" @click="joinUs">Devenir membre</button>
       </div>
     </section>
   </div>
@@ -45,6 +70,15 @@
 <script>
 export default {
   name: 'HomePage',
+  data() {
+    return {
+      activities: [
+        { title: 'Randonnées de Nettoyage', description: 'Participez à nos randonnées pour nettoyer les sentiers et profiter de la nature.', image: ('@/assets/cleaning-hike.jpg') },
+        { title: 'Campagnes de Sensibilisation', description: 'Nous organisons des campagnes pour sensibiliser le public à l’importance de la protection de l’environnement.', image: ('@/assets/awareness-campaign.jpg') },
+        { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.', image: ('@/assets/community-event.jpg') }
+      ]
+    };
+  },
   methods: {
     joinUs() {
       this.$router.push('/join');
@@ -57,6 +91,22 @@ export default {
 .home .banner {
   background: url('@/assets/banner.webp') no-repeat center center/cover;
   height: 100vh;
+  position: relative;
+}
+
+.home .banner:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
 }
 
 .stat-item .number {
@@ -68,5 +118,24 @@ export default {
 .stat-item .desc {
   font-size: 1.2em;
   color: #555;
+}
+
+.card-title {
+  font-size: 1.5em;
+  color: #4CAF50;
+}
+
+.card-text {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.cta {
+  background: #28a745;
+  color: white;
+}
+
+.cta .btn-light {
+  color: #28a745;
 }
 </style>
