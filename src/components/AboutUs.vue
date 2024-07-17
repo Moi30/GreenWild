@@ -70,7 +70,7 @@
     <!-- History Section -->
     <section>
       <h2 class="text-center mb-4">Notre Histoire</h2>
-      <p class="text-center">Fondée en 2020, GreenWild est née d'une passion commune pour la nature et d'un désir de faire la différence. Depuis notre création, nous avons organisé plus de 50 randonnées de nettoyage, collecté plus de 1,000 kg de déchets, et mobilisé plus de 500 volontaires. Nous sommes fiers de notre impact et continuons à travailler pour un avenir plus propre et plus vert.</p>
+      <p class="text-center">Fondée en 2024, GreenWild est née d'une passion commune pour la nature et d'un désir de faire la différence. Depuis notre création, nous organisons des randonnées pour nettoyer la nature, collectons des déchets, et mobilison des volontaires. Nous sommes fiers de notre impact et continuons à travailler pour un avenir plus propre et plus vert.</p>
     </section>
   </div>
 </template>

@@ -20,13 +20,13 @@ export default {
   data() {
     return {
       team: [
-        { name: 'Maleaume', role: 'CEO' },
-        { name: 'Fanny', role: 'Co-Fondatrice et DA' },
-        { name: 'Jeremy', role: 'Développeur' },
-        { name: 'Alexis', role: 'Développeur' },
-        { name: 'Phil', role: 'Organisateur' },
-        { name: 'Ugo', role: 'Organisateur' },
-        { name: 'Clara', role: 'Com et Marketing' },
+        { name: 'Maleaume', role: 'Fondateur et CEO' },
+        { name: 'Fanny', role: 'Co-Fondatrice et Directrice Artistique' },
+        { name: 'Jeremy', role: 'Lead Développeur' },
+        { name: 'Alexis', role: 'Lead Développeur' },
+        { name: 'Phil', role: 'Trésorier et Responsable Evenementiel' },
+        { name: 'Ugo', role: 'Co-Responsable Evenementiel' },
+        { name: 'Clara', role: 'Responsable Marketing et Communication' },
         { name: 'Corentin', role: 'Trésorier' }
       ]
     };
