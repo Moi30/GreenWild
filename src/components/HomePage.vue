@@ -3,9 +3,9 @@
     <!-- Banner Section -->
     <section class="banner d-flex align-items-center justify-content-center text-center text-white">
       <div class="banner-content">
-        <h1 class="display-4">Bienvenue chez GreenWild</h1>
-        <p class="lead">Participez à nos activités pour un monde plus propre!</p>
-        <button class="btn btn-success btn-lg" @click="joinUs">Rejoignez-nous</button>
+        <h1 class="display-4 animate__animated animate__fadeInDown">Bienvenue chez GreenWild</h1>
+        <p class="lead animate__animated animate__fadeInUp">Participez à nos activités pour un monde plus propre!</p>
+        <button class="btn btn-success btn-lg animate__animated animate__zoomIn" @click="joinUs">Rejoignez-nous</button>
       </div>
     </section>
 
@@ -20,7 +20,7 @@
       <h2 class="text-center mb-4">Nos Activités</h2>
       <div class="row">
         <div class="col-md-4 mb-4" v-for="activity in activities" :key="activity.title">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 shadow-sm hover-shadow">
             <img :src="activity.image" class="card-img-top" alt="Activity image">
             <div class="card-body">
               <h3 class="card-title">{{ activity.title }}</h3>
@@ -73,9 +73,9 @@ export default {
   data() {
     return {
       activities: [
-        { title: 'Randonnées de Nettoyage', description: 'Participez à nos randonnées pour nettoyer les sentiers et profiter de la nature.', image: ('@/assets/cleaning-hike.jpg') },
-        { title: 'Campagnes de Sensibilisation', description: 'Nous organisons des campagnes pour sensibiliser le public à l’importance de la protection de l’environnement.', image: ('@/assets/awareness-campaign.jpg') },
-        { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.', image: ('@/assets/community-event.jpg') }
+        { title: 'Randonnées de Nettoyage', description: 'Participez à nos randonnées pour nettoyer les sentiers et profiter de la nature.', image: require('@/assets/cleaning-hike.webp') },
+        { title: 'Campagnes de Sensibilisation', description: 'Nous organisons des campagnes pour sensibiliser le public à l’importance de la protection de l’environnement.', image: require('@/assets/awareness-campaign.webp') },
+        { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.', image: require('@/assets/community-event.webp') }
       ]
     };
   },
@@ -130,6 +130,21 @@ export default {
   color: #555;
 }
 
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
 .cta {
   background: #28a745;
   color: white;
@@ -139,3 +154,6 @@ export default {
   color: #28a745;
 }
 </style>
+
+<!-- Import Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
