@@ -23,6 +23,9 @@
               <router-link class="nav-link" to="/join">Devenir membre</router-link>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link" to="/donation">Faire un don</router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link" to="/contact">Contact</router-link>
             </li>
           </ul>

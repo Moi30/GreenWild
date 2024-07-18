@@ -14,6 +14,16 @@
       </div>
     </div>
 
+    <!-- Carte des lieux de passage -->
+    <div id="map" style="height: 400px;">
+      <l-map :zoom="zoom" :center="center" style="height: 100%;">
+        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <l-marker v-for="loc in locations" :key="loc.name" :lat-lng="loc.latLng">
+          <l-tooltip>{{ loc.name }}</l-tooltip>
+        </l-marker>
+      </l-map>
+    </div>
+
     <!-- Section Événements à venir -->
     <section class="upcoming-events mt-5">
       <h2 class="text-center animate__animated animate__fadeIn">Événements à venir</h2>
@@ -31,8 +41,15 @@
 </template>
 
 <script>
+import { LMap, LTileLayer, LMarker, LTooltip } from 'vue3-leaflet';
 export default {
-  name: 'ActivitiesPage',
+  name: 'ActivitiesPage',  
+  components: {
+    LMap,
+    LTileLayer,
+    LMarker,
+    LTooltip
+  },
   data() {
     return {
       activities: [
@@ -44,6 +61,13 @@ export default {
         { name: 'Nettoyage de Plage', date: '12 octobre 2023', description: 'Un événement pour nettoyer notre littoral local.' },
         { name: 'Journée de la Terre', date: '22 avril 2024', description: 'Participez à des activités ....' },
         { name: 'Rocher des deux trous', date: '22 avril 2024', description: 'Randonnée de 18km' }
+      ],
+      center: [46.2276, 2.2137],
+      zoom: 6,
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+      locations: [
+        { name: 'Rocher des Deux Trous', latLng: [43.762324, 4.84167] }
       ]
     };
   }
