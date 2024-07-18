@@ -33,7 +33,7 @@ export default {
   methods: {
     submitForm() {
       console.log('Form submitted:', this.name, this.email, this.message);
-      alert('Merci pour votre message ! Nous vous contacterons bientôt.');
+      alert("Le formulaire n'est pas encore prêt. Vous pouvez nous joindre directement via contact@greenwild.fr");
       this.name = '';
       this.email = '';
       this.message = '';

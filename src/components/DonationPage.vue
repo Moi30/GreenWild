@@ -1,9 +1,9 @@
 <template>
-  <div class="donation container my-5">
-    <h1 class="text-center mb-4">Faire un don</h1>
-    <p class="lead text-center">Votre soutien nous aide à continuer nos actions en faveur de l'environnement. Tous les dons sont appréciés.</p>
+  <div class="donation container my-5 animate__animated animate__fadeIn">
+    <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Faire un don</h1>
+    <p class="lead text-center animate__animated animate__fadeInDown">Votre soutien nous aide à continuer nos actions en faveur de l'environnement. Tous les dons sont appréciés.</p>
 
-    <form @submit.prevent="submitDonation" class="donation-form mx-auto mt-4" style="max-width: 500px;">
+    <form @submit.prevent="submitDonation" class="donation-form mx-auto mt-4 animate__animated animate__fadeInUp" style="max-width: 500px;">
       <div class="form-group mb-3">
         <label for="amount">Montant du don (€)</label>
         <input type="number" id="amount" v-model="amount" class="form-control" required min="5">
@@ -18,7 +18,7 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-success btn-lg">Donner</button>
+      <button type="submit" class="btn btn-success btn-lg animate__animated animate__pulse animate__infinite">Donner</button>
     </form>
   </div>
 </template>
@@ -34,9 +34,8 @@ export default {
   },
   methods: {
     submitDonation() {
-      // Logic to process the donation
       console.log(`Donation of €${this.amount} via ${this.paymentMethod}`);
-      alert(`Merci pour votre don de €${this.amount}!`);
+      alert("Le formulaire n'est pas encore prêt. Vous pouvez nous joindre directement via contact@greenwild.fr");
       this.amount = ''; // Reset amount after submission
     }
   }

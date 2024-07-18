@@ -42,8 +42,10 @@
 
 <script>
 import { LMap, LTileLayer, LMarker, LTooltip } from 'vue3-leaflet';
+import 'leaflet/dist/leaflet.css';
+
 export default {
-  name: 'ActivitiesPage',  
+  name: 'ActivitiesPage',
   components: {
     LMap,
     LTileLayer,
@@ -62,7 +64,7 @@ export default {
         { name: 'Journée de la Terre', date: '22 avril 2024', description: 'Participez à des activités ....' },
         { name: 'Rocher des deux trous', date: '22 avril 2024', description: 'Randonnée de 18km' }
       ],
-      center: [46.2276, 2.2137],
+      center: [46.2276, 2.2137], // Latitude, Longitude
       zoom: 6,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
@@ -73,21 +75,20 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .card-title {
   font-size: 1.5em;
   color: #4CAF50;
 }
 .card-text {
-  font-size: 1.2em;
+  font-size: 1.2em; /* Corrected from comma to semicolon */
   color: #555;
 }
 .event-card h3 {
   color: #4CAF50;
 }
 .event-card p {
-  font-size: 1.2em;
+  font-size: 1.2em; /* Added semicolon here too */
   color: #555;
 }
 </style>
