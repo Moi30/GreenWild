@@ -14,6 +14,7 @@
           <h4>Suivez-nous</h4>
           <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">Linkedin</a>
         </div>
+        © 2024 GreenWild. Tous droits réservés.
       </div>
     </div>
   </footer>
