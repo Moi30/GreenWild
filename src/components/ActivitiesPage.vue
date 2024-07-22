@@ -60,10 +60,9 @@ export default {
         { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.' }
       ],
       upcomingEvents: [
-        { name: 'Nettoyage de Plage', date: '12 octobre 2023', description: 'Un événement pour nettoyer notre littoral local.' },
-        { name: 'Journée de la Terre', date: '22 avril 2024', description: 'Participez à des activités ....' },
-        { name: 'Rocher des deux trous', date: '22 avril 2024', description: 'Randonnée de 18km' }
-      ],
+      { name: 'Rocher des deux trous', date: '13 juillet 2024', description: 'Randonnée de 18km à Saint-Rémy de provence' },
+      { name: 'Ambrussum', date: '3 août 2024', description: 'Nettoyage du site archéologique d\'Ambrussum' },
+     ],
       center: [46.2276, 2.2137], // Latitude, Longitude
       zoom: 6,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
