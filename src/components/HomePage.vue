@@ -37,19 +37,19 @@
       <div class="row">
         <div class="col-md-4 mb-4">
           <div class="stat-item p-4 bg-light rounded shadow text-center">
-            <span class="number display-4">50+</span>
+            <span class="number display-4">1</span>
             <span class="desc d-block mt-2">Balades organisées</span>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="stat-item p-4 bg-light rounded shadow text-center">
-            <span class="number display-4">1,000kg</span>
+            <span class="number display-4">3kg</span>
             <span class="desc d-block mt-2">Déchets collectés</span>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="stat-item p-4 bg-light rounded shadow text-center">
-            <span class="number display-4">500</span>
+            <span class="number display-4">10</span>
             <span class="desc d-block mt-2">Volontaires actifs</span>
           </div>
         </div>

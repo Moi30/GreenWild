@@ -33,8 +33,19 @@
       </div>
     </nav>
     <router-view/>
+    <site-footer/>
   </div>
 </template>
+
+<script>
+import SiteFooter  from './components/SiteFooter.vue';
+
+export default {
+  components: {
+    SiteFooter 
+  }
+}
+</script>
 
 <style>
 nav .navbar-brand {
