@@ -14,22 +14,35 @@
       </div>
     </div>
 
-    <!-- Carte des lieux de passage -->
-    <div id="map" style="height: 400px;">
-      <l-map :zoom="zoom" :center="center" style="height: 100%;">
+    <!-- Carte des lieux de passage avec animation -->
+    <div id="map" v-if="isReady" class="animate__animated animate__fadeInUp" style="height: 400px;">
+      <l-map :zoom="zoom" :center="center">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker v-for="loc in locations" :key="loc.name" :lat-lng="loc.latLng">
-          <l-tooltip>{{ loc.name }}</l-tooltip>
-        </l-marker>
+        <l-marker v-for="loc in validLocations" :key="loc.name" :lat-lng="loc.latLng"></l-marker>
       </l-map>
     </div>
 
-    <!-- Section Événements à venir -->
+    <!-- Section Événements à venir avec bouton d'inscription -->
     <section class="upcoming-events mt-5">
       <h2 class="text-center animate__animated animate__fadeIn">Événements à venir</h2>
       <div class="row animate__animated animate__fadeInUp">
-        <div class="col-md-6" v-for="event in upcomingEvents" :key="event.name">
-          <div class="event-card p-3 mb-3 shadow-sm">
+        <div class="col-md-4" v-for="event in upcomingEvents" :key="event.name">
+          <div class="event-card p-3 mb-3 shadow-sm h-100">
+            <h3>{{ event.name }}</h3>
+            <p>{{ event.date }}</p>
+            <p>{{ event.description }}</p>
+            <router-link :to="{ name: 'contact' }" class="btn btn-primary">S'inscrire</router-link>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Événements passés -->
+    <section class="passed-events mt-5">
+      <h2 class="text-center animate__animated animate__fadeIn">Événements passés</h2>
+      <div class="row animate__animated animate__fadeInUp">
+        <div class="col-md-4" v-for="event in passedEvents" :key="event.name">
+          <div class="event-card p-3 mb-3 shadow-sm h-100">
             <h3>{{ event.name }}</h3>
             <p>{{ event.date }}</p>
             <p>{{ event.description }}</p>
@@ -41,7 +54,7 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker, LTooltip } from 'vue3-leaflet';
+import { LMap, LTileLayer, LMarker } from 'vue3-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 export default {
@@ -49,8 +62,7 @@ export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker,
-    LTooltip
+    LMarker
   },
   data() {
     return {
@@ -59,39 +71,71 @@ export default {
         { title: 'Campagnes de Sensibilisation', description: 'Nous organisons des campagnes pour sensibiliser le public à l’importance de la protection de l’environnement.' },
         { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.' }
       ],
-      upcomingEvents: [
-        { name: 'Nettoyage de Plage', date: '12 octobre 2023', description: 'Un événement pour nettoyer notre littoral local.' },
-        { name: 'Journée de la Terre', date: '22 avril 2024', description: 'Participez à des activités ....' },
-        { name: 'Rocher des deux trous', date: '22 avril 2024', description: 'Randonnée de 18km' }
-      ],
-      center: [46.2276, 2.2137], // Latitude, Longitude
+      events: [],
+      isReady: false,
+      center: [46.2276, 2.2137],
       zoom: 6,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-      locations: [
-        { name: 'Rocher des Deux Trous', latLng: [43.762324, 4.84167] }
-      ]
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
     };
+  },
+  computed: {
+    upcomingEvents() {
+      return this.events.filter(event => event.type === 'upcoming');
+    },
+    passedEvents() {
+      return this.events.filter(event => event.type === 'passed');
+    },
+    validLocations() {
+      return this.events.map(event => ({
+        name: event.location.name,
+        latLng: event.location.latLng
+      }));
+    }
+  },
+  mounted() {
+    fetch(new URL('./events.json', import.meta.url))
+      .then(response => response.json())
+      .then(data => {
+        this.events = data.events;
+        this.isReady = true;
+      })
+      .catch(error => console.error('Error loading events.json:', error));
   }
 }
 </script>
+
 <style scoped>
 .card-title {
   font-size: 1.5em;
   color: #4CAF50;
 }
 .card-text {
-  font-size: 1.2em; /* Corrected from comma to semicolon */
+  font-size: 1.2em;
   color: #555;
 }
-.event-card h3 {
-  color: #4CAF50;
-}
-.event-card p {
-  font-size: 1.2em; /* Added semicolon here too */
+.event-card {
+  position: relative;
+  font-size: 1.2em;
   color: #555;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.btn-primary {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+#map {
+  height: 400px;
 }
 </style>
-
-<!-- Import Animate.css for animations -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
