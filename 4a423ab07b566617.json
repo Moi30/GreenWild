@@ -1,0 +1,44 @@
+{
+    "events": [
+      {
+        "type": "upcoming",
+        "name": "Ambrussum, Villetelle",
+        "date": "3 août 2024",
+        "description": "Nettoyage en balade du site archéologique d'Ambrussum. Venez sur les plus anciennes traces d'occupation du site d'Ambrussum qui remontent à la fin de la période Néolithique (2600 avant notre ère).",
+        "location": {
+          "name": "Chemin d'Ambrussum",
+          "latLng": [43.7190242, 4.1480012]
+        }
+      },
+      {
+        "type": "upcoming",
+        "name": "Massif de la Gardiole, Gigean",
+        "date": "Date non définie",
+        "description": "Nettoyage en randonnée. Le massif de la Gardiole est un massif situé dans le département français de l'Hérault en région Occitanie, entre Montpellier et Sète et longeant la mer Méditerranée. Il constitue l'une des dernières séries de plis créés lors du Jurassique.",
+        "location": {
+          "name": "Massif de la Gardiole, Gigean",
+          "latLng": [43.48, 3.730556]
+        }
+      },
+      {
+        "type": "upcoming",
+        "name": "Promenade du Lido, Sète",
+        "date": "Date non définie",
+        "description": "Nettoyage en balade du Lido. Venez pour une balade au pied des dunes et le long des plages pour préserver notre environnement.",
+        "location": {
+          "name": "Promenade du Lido, Sète",
+          "latLng": [43.393242, 3.660221]
+        }
+      },
+      {
+        "type": "passed",
+        "name": "Le Rocher des deux trous",
+        "date": "13 juillet 2024",
+        "description": "Nettoyage en randonnée. Elle nous conduit jusqu'au rocher pittoresque des Deux Trous peint par Van Gogh lors se son séjour à Saint-Paul de Mausole. Elle offre de vastes panoramas sur les deux versants des Alpilles.",
+        "location": {
+          "name": "Rocher des Deux Trous",
+          "latLng": [43.762324, 4.84167]
+        }
+      }
+    ]
+  }  
