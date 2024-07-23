@@ -12,7 +12,7 @@
         </div>
         <div class="footer-section">
           <h4>Suivez-nous</h4>
-          <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">Linkedin</a>
+          <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="https://www.instagram.com/greenwild.france/">Instagram</a> | <a href="https://www.linkedin.com/company/greenwild">Linkedin</a>
         </div>
         © 2024 GreenWild. Tous droits réservés.
       </div>
