@@ -27,6 +27,23 @@ export default {
 </script>
 
 <style scoped>
+.footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-section {
+  margin: 10px;
+  width: 100%;
+}
+
+.footer-content {
+  width: 100%;
+}
+
 .footer {
   background-color: #333;
   color: #fff;
