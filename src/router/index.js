@@ -13,7 +13,7 @@ const routes = [
   { path: '/activities', component: ActivitiesPage },
   { path: '/join', component: JoinUs },
   { path: '/donation', component: DonationPage },
-  { path: '/contact', component: ContactPage }
+  { path: '/contact', component: ContactPage, name: 'contact' }
 ];
 
 const router = createRouter({
