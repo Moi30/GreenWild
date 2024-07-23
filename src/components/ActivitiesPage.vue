@@ -60,8 +60,9 @@ export default {
         { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.' }
       ],
       upcomingEvents: [
-      { name: 'Rocher des deux trous', date: '13 juillet 2024', description: 'Randonnée de 18km à Saint-Rémy de provence' },
-      { name: 'Ambrussum', date: '3 août 2024', description: 'Nettoyage du site archéologique d\'Ambrussum' },
+      { name: 'Rocher des deux trous', date: '13 juillet 2024', description: 'Nettoyage sur la randonnée Rocher des deux trous. Randonnée de 18km à Saint-Rémy de provence' },
+      { name: 'Ambrussum', date: '3 août 2024', description: 'Nettoyage du site archéologique d\'Ambrussum. Venez sur les plus anciennes traces d\'occupation du site d\'Ambrussum qui remontent à la fin de la période Néolithique (2600 avant notre ère)' },      
+      { name: 'La voie verte du Lido', date: 'Non définie', description: 'Nettoyage de la voie verte du Lide. Venez pour une balade au pied des dunes et le long des plages pour préserver notre environnement' },
      ],
       center: [46.2276, 2.2137], // Latitude, Longitude
       zoom: 6,
@@ -80,14 +81,14 @@ export default {
   color: #4CAF50;
 }
 .card-text {
-  font-size: 1.2em; /* Corrected from comma to semicolon */
+  font-size: 1.2em;
   color: #555;
 }
 .event-card h3 {
   color: #4CAF50;
 }
 .event-card p {
-  font-size: 1.2em; /* Added semicolon here too */
+  font-size: 1.2em;
   color: #555;
 }
 </style>
