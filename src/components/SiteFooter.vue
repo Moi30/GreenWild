@@ -9,16 +9,28 @@
         <div class="footer-section">
           <h4>Contactez-nous</h4>
           <p><a href="mailto:contact@greenwild.fr">contact@greenwild.fr</a></p>
+          <p>SIREN : 930 755 848</p>
         </div>
         <div class="footer-section">
           <h4>Suivez-nous</h4>
-          <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a target="_blank" href="https://www.instagram.com/greenwild.france/">Instagram</a> | <a target="_blank" href="https://www.linkedin.com/company/greenwild">Linkedin</a>
+          <a target="_blank" href="https://www.facebook.com/greenwild">
+            <!-- <img src="@/assets/facebook-icon.png" alt="Facebook" class="social-icon" /> -->
+          </a>
+          <a target="_blank" href="https://www.instagram.com/greenwild.france/">
+            <!-- <img src="@/assets/instagram-icon.png" alt="Instagram" class="social-icon" /> -->
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/company/greenwild">
+            <!-- <img src="@/assets/linkedin-icon.png" alt="LinkedIn" class="social-icon" /> -->
+          </a>
         </div>
+      </div>
+      <div class="footer-copyright">
         © 2024 GreenWild. Tous droits réservés.
       </div>
     </div>
   </footer>
 </template>
+
 
 <script>
 export default {
@@ -27,23 +39,6 @@ export default {
 </script>
 
 <style scoped>
-.footer .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.footer-section {
-  margin: 10px;
-  width: 100%;
-}
-
-.footer-content {
-  width: 100%;
-}
-
 .footer {
   background-color: #333;
   color: #fff;
@@ -54,10 +49,24 @@ export default {
 .footer .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .footer-section {
   margin: 10px;
+  width: 30%;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
 }
 
 .footer a {
@@ -67,5 +76,17 @@ export default {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.footer-copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 5px;
 }
 </style>
