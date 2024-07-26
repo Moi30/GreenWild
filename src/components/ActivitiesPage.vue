@@ -14,20 +14,20 @@
       </div>
     </div>
 
-    <!-- Carte des lieux de passage avec animation -->
-    <div id="map" v-if="isReady" class="animate__animated animate__fadeInUp" style="height: 400px;">
+    <!-- Map Section with Animation -->
+    <div id="map" v-if="isReady" class="map animate__animated animate__fadeInUp">
       <l-map :zoom="zoom" :center="center">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <l-marker v-for="loc in validLocations" :key="loc.name" :lat-lng="loc.latLng"></l-marker>
       </l-map>
     </div>
 
-    <!-- Section Événements à venir avec bouton d'inscription -->
+    <!-- Upcoming Events Section with Registration Button -->
     <section class="upcoming-events mt-5">
       <h2 class="text-center animate__animated animate__fadeIn">Événements à venir</h2>
       <div class="row animate__animated animate__fadeInUp">
-        <div class="col-md-4" v-for="event in upcomingEvents" :key="event.name">
-          <div class="event-card p-3 mb-3 shadow-sm h-100">
+        <div class="col-md-4 mb-4" v-for="event in sortedUpcomingEvents" :key="event.name">
+          <div class="event-card p-3 shadow-sm h-100">
             <h3>{{ event.name }}</h3>
             <p>{{ event.date }}</p>
             <p>{{ event.description }}</p>
@@ -37,15 +37,27 @@
       </div>
     </section>
 
-    <!-- Section Événements passés -->
-    <section class="passed-events mt-5">
-      <h2 class="text-center animate__animated animate__fadeIn">Événements passés</h2>
+    <!-- Highlighted Cleanup Achievements -->
+    <section class="cleanup-achievements mt-5">
+      <h2 class="text-center animate__animated animate__fadeIn">Nos Réussites</h2>
       <div class="row animate__animated animate__fadeInUp">
-        <div class="col-md-4" v-for="event in passedEvents" :key="event.name">
-          <div class="event-card p-3 mb-3 shadow-sm h-100">
+        <div class="col-md-4 mb-4" v-for="(event, index) in sortedPassedEvents" :key="event.name">
+          <div class="event-card p-3 shadow-sm h-100">
             <h3>{{ event.name }}</h3>
             <p>{{ event.date }}</p>
-            <p>{{ event.description }}</p>
+            <div class="collapse" :id="'details-' + index">
+              <p>{{ event.description }}</p>
+              <p v-if="event.wasteCollected"><strong>Déchets ramassés:</strong> {{ event.wasteCollected }} kg</p>
+              <div v-if="event.wasteTypes">
+                <p><strong>Répartition des déchets:</strong></p>
+                <ul>
+                  <li v-for="(percentage, type) in event.wasteTypes" :key="type">{{ type }}: {{ percentage }}%</li>
+                </ul>
+              </div>
+            </div>
+            <button class="btn btn-outline-secondary btn-details mt-3" data-bs-toggle="collapse" :data-bs-target="'#details-' + index" @click="toggleDetails(event)">
+              {{ event.showDetails ? 'Voir moins de détail' : 'Voir les détails' }}
+            </button>
           </div>
         </div>
       </div>
@@ -72,6 +84,8 @@ export default {
         { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.' }
       ],
       events: [],
+      sortedUpcomingEvents: [],
+      sortedPassedEvents: [],
       isReady: false,
       center: [46.2276, 2.2137],
       zoom: 6,
@@ -93,11 +107,22 @@ export default {
       }));
     }
   },
+  methods: {
+    sortEvents() {
+      this.sortedUpcomingEvents = this.upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+      this.sortedPassedEvents = this.passedEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
+    },
+    toggleDetails(event) {
+      event.showDetails = !event.showDetails;
+    }
+  },
   mounted() {
     fetch(new URL('./events.json', import.meta.url))
       .then(response => response.json())
       .then(data => {
         this.events = data.events;
+        this.events.forEach(event => event.showDetails = false);
+        this.sortEvents();
         this.isReady = true;
       })
       .catch(error => console.error('Error loading events.json:', error));
@@ -119,14 +144,12 @@ export default {
   font-size: 1.2em;
   color: #555;
   background-color: #fff;
-  padding: 15px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 40px; /* Increased margin to separate cards */
 }
 .btn-primary {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -134,8 +157,31 @@ export default {
   cursor: pointer;
   border-radius: 5px;
   text-decoration: none;
+  position: absolute;
+  bottom: 20px; /* Adjusted for better alignment */
+  right: 20px;
+}
+.btn-outline-secondary {
+  margin-top: 10px;
+  color: #4CAF50;
+  border-color: #4CAF50;
+}
+.btn-outline-secondary:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 #map {
   height: 400px;
+  margin-top: 30px; /* Added margin for visual separation from other content */
+}
+@media (max-width: 768px) {
+  .event-card {
+    margin-bottom: 20px; /* Adjust spacing for mobile devices */
+  }
+  .btn-primary {
+    position: static; /* Make button reflow in the normal document flow on mobile */
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 </style>

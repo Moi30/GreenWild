@@ -37,19 +37,19 @@
       <div class="row">
         <div class="col-md-4 mb-4">
           <div class="stat-item p-4 bg-light rounded shadow text-center">
-            <span class="number display-4">1</span>
+            <span class="number display-4">{{ totalCleanups }}</span>
             <span class="desc d-block mt-2">Balades organisées</span>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="stat-item p-4 bg-light rounded shadow text-center">
-            <span class="number display-4">3kg</span>
+            <span class="number display-4">{{ totalWasteCollected }} kg</span>
             <span class="desc d-block mt-2">Déchets collectés</span>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="stat-item p-4 bg-light rounded shadow text-center">
-            <span class="number display-4">10</span>
+            <span class="number display-4">14</span>
             <span class="desc d-block mt-2">Volontaires actifs</span>
           </div>
         </div>
@@ -76,13 +76,32 @@ export default {
         { title: 'Randonnées de Nettoyage', description: 'Participez à nos randonnées pour nettoyer les sentiers et profiter de la nature.', image: require('@/assets/cleaning-hike.webp') },
         { title: 'Campagnes de Sensibilisation', description: 'Nous organisons des campagnes pour sensibiliser le public à l’importance de la protection de l’environnement.', image: require('@/assets/awareness-campaign.webp') },
         { title: 'Événements Communautaires', description: 'Rejoignez nos événements communautaires pour apprendre et contribuer à des initiatives écologiques.', image: require('@/assets/community-event.webp') }
-      ]
+      ],
+      totalCleanups: 0,
+      totalWasteCollected: 0
     };
   },
   methods: {
     joinUs() {
       this.$router.push('/join');
+    },
+    loadEvents() {
+      fetch(new URL('./events.json', import.meta.url))
+        .then(response => response.json())
+        .then(data => {
+          this.totalCleanups = data.events.filter(event => event.type === 'passed').length;
+          this.totalWasteCollected = data.events
+            .filter(event => event.type === 'passed')
+            .reduce((acc, event) => {
+              const waste = parseFloat(event.wasteCollected);
+              return acc + (isNaN(waste) ? 0 : waste);
+            }, 0);
+        })
+        .catch(error => console.error('Error loading events.json:', error));
     }
+  },
+  mounted() {
+    this.loadEvents();
   }
 }
 </script>
