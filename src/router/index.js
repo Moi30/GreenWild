@@ -6,14 +6,16 @@ import ActivitiesPage from '@/components/ActivitiesPage.vue';
 import JoinUs from '@/components/JoinUs.vue';
 import DonationPage from '@/components/DonationPage.vue';
 import ContactPage from '@/components/ContactPage.vue';
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const routes = [
-  { path: '/', component: HomePage },
+  { path: '/', name: 'HomePage', component: HomePage },
   { path: '/about', component: AboutUs },
   { path: '/activities', component: ActivitiesPage },
   { path: '/join', component: JoinUs },
   { path: '/donation', component: DonationPage },
-  { path: '/contact', component: ContactPage, name: 'contact' }
+  { path: '/contact', component: ContactPage, name: 'contact' },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
 ];
 
 const router = createRouter({
