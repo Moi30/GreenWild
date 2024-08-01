@@ -25,32 +25,39 @@
       >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link active" aria-current="page" to="/"
+            <router-link
+              class="nav-link active"
+              aria-current="page"
+              :to="{ name: 'HomePage' }"
               >Accueil</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/about"
+            <router-link class="nav-link" :to="{ name: 'AboutUs' }"
               >À propos de nous</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/activities"
+            <router-link
+              class="nav-link"
+              :to="{ name: 'ActivitiesInformations' }"
               >Nos activités</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/join"
+            <router-link class="nav-link" :to="{ name: 'JoinUs' }"
               >Devenir membre</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/donation"
+            <router-link class="nav-link" :to="{ name: 'DonationPage' }"
               >Faire un don</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/contact">Contact</router-link>
+            <router-link class="nav-link" :to="{ name: 'ContactPage' }"
+              >Contact</router-link
+            >
           </li>
         </ul>
       </div>
