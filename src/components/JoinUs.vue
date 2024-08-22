@@ -48,63 +48,69 @@
 </template>
 
 <script>
-export default {
-  name: 'JoinUs',
-  data() {
-    return {
-      name: '',
-      email: '',
-      reason: ''
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log('Form submitted:', this.name, this.email, this.reason);
-      alert("Le formulaire n'est pas encore prêt. Vous pouvez nous joindre directement via contact@greenwild.fr");
-      this.name = '';
-      this.email = '';
-      this.reason = '';
+  export default {
+    mounted() {
+      window.open("https://greenwild.assoconnect.com/collect/description/451088-n-adhesions-annuelles", '_blank');
+      this.$router.replace('/'); // Redirige vers la page d'accueil ou une autre page après l'ouverture du nouvel onglet sinon on arrive sur donation...
     }
   }
-}
+  // export default {
+  //   name: 'JoinUs',
+  //   data() {
+  //     return {
+  //       name: '',
+  //       email: '',
+  //       reason: ''
+  //     };
+  //   },
+  //   methods: {
+  //     submitForm() {
+  //       console.log('Form submitted:', this.name, this.email, this.reason);
+  //       alert("Le formulaire n'est pas encore prêt. Vous pouvez nous joindre directement via contact@greenwild.fr");
+  //       this.name = '';
+  //       this.email = '';
+  //       this.reason = '';
+  //     }
+  //   }
+  // }
 </script>
 
 <style scoped>
-.join-us .form-group input, .join-us .form-group textarea {
-  background-color: #f8f9fa;
-  border: 2px solid #dee2e6;
-  border-radius: .25rem;
-}
+  .join-us .form-group input, .join-us .form-group textarea {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: .25rem;
+  }
 
-.join-us .form-group input:focus, .join-us .form-group textarea:focus {
-  border-color: #80bdff;
-  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
-}
+  .join-us .form-group input:focus, .join-us .form-group textarea:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+  }
 
-.join-us button {
-  width: 100%;
-  background-color: #4CAF50;
-  border: none;
-}
+  .join-us button {
+    width: 100%;
+    background-color: #4CAF50;
+    border: none;
+  }
 
-.join-us button:hover {
-  background-color: #367c39;
-}
+  .join-us button:hover {
+    background-color: #367c39;
+  }
 
-.membership-info i {
-  color: #4CAF50;
-}
+  .membership-info i {
+    color: #4CAF50;
+  }
 
-.membership-info h4 {
-  color: #343a40;
-  font-weight: bold;
-}
+  .membership-info h4 {
+    color: #343a40;
+    font-weight: bold;
+  }
 
-.membership-info p {
-  color: #666;
-  font-size: 0.9rem;
-}
+  .membership-info p {
+    color: #666;
+    font-size: 0.9rem;
+  }
 
-/* Import Animate.css for smooth animations */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+  /* Import Animate.css for smooth animations */
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 </style>
