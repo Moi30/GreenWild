@@ -41,7 +41,7 @@
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/join"
-              >Devenir membre</router-link
+              >Devenir adhérent</router-link
             >
           </li>
           <li class="nav-item">

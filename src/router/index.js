@@ -9,13 +9,13 @@ import ContactPage from '@/components/ContactPage.vue';
 import NotFoundView from '@/views/NotFoundView.vue'
 
 const routes = [
-  { path: '/', name: 'HomePage', component: HomePage },
-  { path: '/about', component: AboutUs },
-  { path: '/activities', component: ActivitiesPage },
-  { path: '/join', component: JoinUs },
-  { path: '/donation', component: DonationPage },
-  { path: '/contact', component: ContactPage, name: 'contact' },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
+  { path: '/', name: 'HomePage', component: HomePage, sensitive: true},
+  { path: '/about', component: AboutUs, sensitive: true},
+  { path: '/activities', component: ActivitiesPage, sensitive: true},
+  { path: '/join', component: JoinUs, sensitive: true},
+  { path: '/donation', component: DonationPage, sensitive: true},
+  { path: '/contact', component: ContactPage, name: 'contact', sensitive: true},
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView},
 ];
 
 const router = createRouter({

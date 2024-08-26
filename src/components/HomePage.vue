@@ -61,7 +61,7 @@
       <div class="container">
         <h2 class="mb-4">Prêt à faire la différence ?</h2>
         <p class="lead mb-4">Rejoignez-nous et participez à nos activités pour un environnement plus propre et plus sain.</p>
-        <button class="btn btn-light btn-lg" @click="joinUs">Devenir membre</button>
+        <button class="btn btn-light btn-lg" @click="joinUs">Devenir adhérent</button>
       </div>
     </section>
   </div>
@@ -96,8 +96,16 @@ export default {
               const waste = parseFloat(event.wasteCollected);
               return acc + (isNaN(waste) ? 0 : waste);
             }, 0);
+          this.totalWasteCollected = this.roundToDecimals(this.totalWasteCollected, 2);
         })
         .catch(error => console.error('Error loading events.json:', error));
+    },
+    roundToDecimals(value, decimals) {
+      if (typeof value !== 'number' || typeof decimals !== 'number') {
+        throw new Error('Both parameters must be numbers.');
+      }
+      const factor = Math.pow(10, decimals);
+      return Math.round(value * factor) / factor;
     }
   },
   mounted() {
