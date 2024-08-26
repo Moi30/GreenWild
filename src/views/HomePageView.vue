@@ -87,7 +87,7 @@
           plus propre et plus sain.
         </p>
         <button class="btn btn-light btn-lg" @click="joinUs">
-          Devenir membre
+          Devenir adhérent
         </button>
       </div>
     </section>
@@ -95,7 +95,6 @@
 </template>
 
 <script>
-import eventsJson from "@/assets/events.json";
 export default {
   name: "HomePage",
   data() {
@@ -129,15 +128,31 @@ export default {
       this.$router.push("/join");
     },
     loadEvents() {
-      this.totalCleanups = eventsJson.events.filter(
-        (event) => event.type === "passed"
-      ).length;
-      this.totalWasteCollected = eventsJson.events
-        .filter((event) => event.type === "passed")
-        .reduce((acc, event) => {
-          const waste = parseFloat(event.wasteCollected);
-          return acc + (isNaN(waste) ? 0 : waste);
-        }, 0);
+      fetch(new URL("./events.json", import.meta.url))
+        .then((response) => response.json())
+        .then((data) => {
+          this.totalCleanups = data.events.filter(
+            (event) => event.type === "passed"
+          ).length;
+          this.totalWasteCollected = data.events
+            .filter((event) => event.type === "passed")
+            .reduce((acc, event) => {
+              const waste = parseFloat(event.wasteCollected);
+              return acc + (isNaN(waste) ? 0 : waste);
+            }, 0);
+          this.totalWasteCollected = this.roundToDecimals(
+            this.totalWasteCollected,
+            2
+          );
+        })
+        .catch((error) => console.error("Error loading events.json:", error));
+    },
+    roundToDecimals(value, decimals) {
+      if (typeof value !== "number" || typeof decimals !== "number") {
+        throw new Error("Both parameters must be numbers.");
+      }
+      const factor = Math.pow(10, decimals);
+      return Math.round(value * factor) / factor;
     },
   },
   mounted() {

@@ -46,7 +46,7 @@
           </li>
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'JoinUs' }"
-              >Devenir membre</router-link
+              >Devenir adhérent</router-link
             >
           </li>
           <li class="nav-item">

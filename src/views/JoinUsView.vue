@@ -1,25 +1,12 @@
 <template>
   <div class="join-us container my-5">
-    <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Devenir Membre</h1>
+    <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Devenir Adhérent</h1>
     <p class="lead text-center animate__animated animate__fadeInUp">Rejoignez-nous et contribuez activement à la préservation de notre environnement.</p>
     
-    <form @submit.prevent="submitForm" class="mx-auto mt-4 animate__animated animate__fadeIn" style="max-width: 500px;">
-      <div class="form-group mb-4">
-        <input type="text" id="name" v-model="name" class="form-control" placeholder="Votre nom" required />
-      </div>
-      <div class="form-group mb-4">
-        <input type="email" id="email" v-model="email" class="form-control" placeholder="Votre email" required />
-      </div>
-      <div class="form-group mb-4">
-        <textarea id="reason" v-model="reason" class="form-control" placeholder="Pourquoi voulez-vous nous rejoindre?" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-success btn-block btn-lg">Envoyer</button>
-    </form>
-
     <!-- Membership Benefits Section -->
     <section class="membership-info mt-5 p-4 bg-light border rounded animate__animated animate__fadeIn">
-      <h2 class="text-center mb-3">Pourquoi devenir Membre de GreenWild ?</h2>
-      <p class="text-center mb-4">En tant que membre, vous bénéficiez de nombreux avantages exclusifs :</p>
+      <h2 class="text-center mb-3">Pourquoi devenir Adhérent de GreenWild ?</h2>
+      <p class="text-center mb-4">En tant que adhérent, vous bénéficiez de nombreux avantages exclusifs :</p>
       <div class="row">
         <div class="col-md-6 col-lg-3 mb-4 text-center">
           <i class="fas fa-tree fa-3x mb-2 text-success"></i>
@@ -42,69 +29,81 @@
           <p>Formations gratuites sur les pratiques de développement durable.</p>
         </div>
       </div>
-      <p class="text-center mt-4">Cotisation annuelle de seulement 10€ qui soutient directement nos initiatives écologiques.</p>
+      <p class="text-center mt-4">Cotisation annuelle de seulement 25€ qui soutient directement nos initiatives écologiques.</p>
     </section>
+    
+    <form @submit.prevent="submitForm" class="mx-auto mt-4 animate__animated animate__fadeIn" style="max-width: 500px;">
+      <button type="submit" class="btn btn-success btn-block btn-lg">Nous rejoindre !</button>
+    </form>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'JoinUs',
-  data() {
-    return {
-      name: '',
-      email: '',
-      reason: ''
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log('Form submitted:', this.name, this.email, this.reason);
-      alert("Le formulaire n'est pas encore prêt. Vous pouvez nous joindre directement via contact@greenwild.fr");
-      this.name = '';
-      this.email = '';
-      this.reason = '';
+  export default {
+    name: 'JoinUs',
+    data() {
+      return {
+        name: '',
+        email: '',
+        reason: ''
+      };
+    },
+    methods: {
+      submitForm() {
+        window.open("https://greenwild.assoconnect.com/collect/description/451088-n-adhesions-annuelles", '_blank');
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-.join-us .form-group input, .join-us .form-group textarea {
-  background-color: #f8f9fa;
-  border: 2px solid #dee2e6;
-  border-radius: .25rem;
-}
+  .join-us .form-group input, .join-us .form-group textarea {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: .25rem;
+  }
 
-.join-us .form-group input:focus, .join-us .form-group textarea:focus {
-  border-color: #80bdff;
-  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
-}
+  .join-us .form-group input:focus, .join-us .form-group textarea:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+  }
 
-.join-us button {
-  width: 100%;
-  background-color: #4CAF50;
-  border: none;
-}
+  .join-us button {
+    width: 100%;
+    background-color: #4CAF50;
+    border: none;
+  }
 
-.join-us button:hover {
-  background-color: #367c39;
-}
+  .join-us button:hover {
+    background-color: #367c39;
+  }
 
-.membership-info i {
-  color: #4CAF50;
-}
+  button {
+    width: 100%;
+    padding: .75rem;
+    font-size: 1.2rem;
+    border-radius: .25rem;
+    transition: background-color .15s ease-in-out;
+  }
 
-.membership-info h4 {
-  color: #343a40;
-  font-weight: bold;
-}
+  button:hover {
+    background-color: #4cae4c;
+  }
 
-.membership-info p {
-  color: #666;
-  font-size: 0.9rem;
-}
+  .membership-info i {
+    color: #4CAF50;
+  }
 
-/* Import Animate.css for smooth animations */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+  .membership-info h4 {
+    color: #343a40;
+    font-weight: bold;
+  }
+
+  .membership-info p {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  /* Import Animate.css for smooth animations */
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 </style>

@@ -35,7 +35,7 @@
             <div class="card-body text-center">
               <div class="icon mb-3"><i class="fas fa-people-carry fa-2x"></i></div>
               <h3 class="card-title">Événements Communautaires</h3>
-              <p class="card-text">Organiser des événements communautaires pour engager et éduquer les membres de la communauté sur les pratiques écologiques.</p>
+              <p class="card-text">Organiser des événements communautaires pour engager et éduquer les adhérents de la communauté sur les pratiques écologiques.</p>
             </div>
           </div>
         </div>
