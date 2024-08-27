@@ -33,7 +33,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'AboutUs' }"
+            <router-link class="nav-link"  @click="removeFocus"  :to="{ name: 'AboutUs' }"
               >À propos de nous</router-link
             >
           </li>
@@ -45,17 +45,17 @@
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'JoinUs' }"
+            <router-link class="nav-link"  @click="removeFocus"  :to="{ name: 'JoinUs' }"
               >Devenir adhérent</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'DonationPage' }"
+            <router-link class="nav-link"  @click="removeFocus"  :to="{ name: 'DonationPage' }"
               >Faire un don</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'ContactPage' }"
+            <router-link class="nav-link"  @click="removeFocus"  :to="{ name: 'ContactPage' }"
               >Contact</router-link
             >
           </li>
@@ -67,47 +67,10 @@
 <script>
 export default {
   name: "AppNavBar",
+  methods: {
+    removeFocus(event) {
+      event.target.blur();
+    }
+  }
 };
 </script>
-
-<style>
-nav .navbar-brand {
-  transition: transform 0.3s ease;
-}
-
-nav .navbar-brand img:hover {
-  transform: scale(1.1);
-}
-
-.nav-link {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link:active {
-  background-color: #358a5b;
-  border-radius: 0.7em;
-}
-
-.nav-link.router-link-exact-active {
-  font-weight: bold;
-  color: #4caf50;
-}
-
-/* Adjustments for centering and responsive behavior */
-.container-fluid {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.navbar-nav {
-  width: 100%;
-  justify-content: space-around;
-}
-
-@media (min-width: 992px) {
-  .navbar-nav {
-    justify-content: center;
-  }
-}
-</style>
