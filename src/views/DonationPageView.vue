@@ -47,29 +47,3 @@
   //   }
   // }
 </script>
-
-<style scoped>
-  .form-group label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: .5rem;
-  }
-
-  .form-control {
-    border: 1px solid #ccc;
-    border-radius: .25rem;
-    padding: .5rem .75rem;
-  }
-
-  button {
-    width: 100%;
-    padding: .75rem;
-    font-size: 1.2rem;
-    border-radius: .25rem;
-    transition: background-color .15s ease-in-out;
-  }
-
-  button:hover {
-    background-color: #4cae4c;
-  }
-</style>

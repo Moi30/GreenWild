@@ -168,38 +168,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* About Us Styles */
-/* Team Page Styles */
-.card-title {
-  font-size: 1.5em;
-  color: #4caf50;
-}
-.card-text {
-  font-size: 1.2em;
-  color: #555;
-}
-.card-img-top {
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-}
-.card-img-top:hover {
-  transform: scale(1.05);
-}
-.hover-shadow:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease-in-out;
-}
-.social-icons a {
-  color: #4caf50;
-  transition: color 0.3s ease;
-}
-.social-icons a:hover {
-  color: #367c39;
-}
-</style>
-
-<!-- Import Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
