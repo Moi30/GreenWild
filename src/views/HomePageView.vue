@@ -126,18 +126,21 @@ export default {
   },
   methods: {
     joinUs() {
-      this.$router.push("/join");
+      this.$router.push("/nous-rejoindre");
     },
     loadEvents() {
       this.totalCleanups = eventsJson.events.filter(
         (event) => event.type === "passed"
       ).length;
-      this.totalWasteCollected = eventsJson.events
+      this.totalWasteCollected = this.roundToDecimals(
+        eventsJson.events
         .filter((event) => event.type === "passed")
         .reduce((acc, event) => {
           const waste = parseFloat(event.wasteCollected);
           return acc + (isNaN(waste) ? 0 : waste);
-        }, 0);
+        }, 0),
+        2
+      );
       // fetch(new URL("./events.json", import.meta.url))
       //   .then((response) => response.json())
       //   .then((data) => {
