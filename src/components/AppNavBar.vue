@@ -16,6 +16,7 @@
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        @click="toggleMenu"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -64,12 +65,21 @@
     </div>
   </nav>
 </template>
+
 <script>
 export default {
   name: "AppNavBar",
   methods: {
     removeFocus(event) {
       event.target.blur();
+    },
+    toggleMenu() {
+      const nav = document.getElementById('navbarNav');
+      if (nav.classList.contains('show')) {
+        nav.classList.remove('show');
+      } else {
+        nav.classList.add('show');
+      }
     }
   }
 };
