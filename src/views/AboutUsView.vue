@@ -110,17 +110,6 @@
             <div class="card-body text-center">
               <h3 class="card-title">{{ member.name }}</h3>
               <p class="card-text">{{ member.role }}</p>
-              <div class="social-icons mt-3">
-                <a href="#" class="text-dark me-2"
-                  ><i class="fab fa-facebook fa-2x"></i
-                ></a>
-                <a href="#" class="text-dark me-2"
-                  ><i class="fab fa-twitter fa-2x"></i
-                ></a>
-                <a href="#" class="text-dark"
-                  ><i class="fab fa-linkedin fa-2x"></i
-                ></a>
-              </div>
             </div>
           </div>
         </div>

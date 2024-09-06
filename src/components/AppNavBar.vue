@@ -9,14 +9,13 @@
         />
       </router-link>
       <button
-        class="navbar-toggler"
+        class="navbar-toggler w-10"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        @click="toggleMenu"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,7 +23,7 @@
         class="collapse navbar-collapse justify-content-center"
         id="navbarNav"
       >
-        <ul class="navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
             <router-link
               class="nav-link active"
@@ -66,21 +65,9 @@
   </nav>
 </template>
 
-<script>
-export default {
-  name: "AppNavBar",
-  methods: {
-    removeFocus(event) {
-      event.target.blur();
-    },
-    toggleMenu() {
-      const nav = document.getElementById('navbarNav');
-      if (nav.classList.contains('show')) {
-        nav.classList.remove('show');
-      } else {
-        nav.classList.add('show');
-      }
-    }
+<script setup>
+
+  function removeFocus(event) {
+    event.target.blur();
   }
-};
 </script>

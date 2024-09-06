@@ -80,7 +80,7 @@ button:hover {
 /* Navbar */
 nav .navbar-brand {
     transition: transform 0.3s ease;
-
+    margin-left: 0.5em;
     img:hover {
         transform: scale(1.1);
     }
@@ -103,16 +103,25 @@ nav .navbar-brand {
 
 /* Responsive adjustments */
 .container-fluid {
+
     padding-right: 0;
     padding-left: 0;
 }
 
-.navbar-nav {
+.navbar-toggler {
+    width: 10%;
+    margin-right: 0.5em;
+}
+
+.navbar-nav {    
     width: 100%;
     justify-content: space-around;
 
     @media (min-width: 992px) {
         justify-content: center;
+    }
+    @media (max-width: 992px) {
+        text-align: center;
     }
 }
 
