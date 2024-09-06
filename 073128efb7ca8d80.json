@@ -2,6 +2,30 @@
   "events": [
     {
       "type": "upcoming",
+      "name": "Plateau Saint-Nicolas, Sainte-Anastasie",
+      "date": "28 septembre 2024",
+      "description": "Nettoyage en randonnée du plateau. Venez dans ces presque gorges du gard.",
+      "location": {
+        "name": "Plateau Saint-Nicolas",
+        "latLng": [43.925927, 4.362192]
+      },
+      "wasteCollected": null,
+      "wasteTypes": null
+    },
+    {
+      "type": "upcoming",
+      "name": "Corbès - Grotte de Valaurie, les Cévennes",
+      "date": "Date non définie",
+      "description": "Nettoyage en randonnée du site au dessus des belles grottes de Valaurie.",
+      "location": {
+        "name": "Valaurie",
+        "latLng": [44.093280, 3.940085]
+      },
+      "wasteCollected": null,
+      "wasteTypes": null
+    },
+    {
+      "type": "passed",
       "name": "Ambrussum, Villetelle",
       "date": "3 août 2024",
       "description": "Nettoyage en balade du site archéologique d'Ambrussum. Venez sur les plus anciennes traces d'occupation du site d'Ambrussum qui remontent à la fin de la période Néolithique (2600 avant notre ère).",
