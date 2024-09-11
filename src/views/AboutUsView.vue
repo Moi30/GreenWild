@@ -106,7 +106,7 @@
       <div class="row">
         <div class="col-md-4 mb-4" v-for="member in team" :key="member.name">
           <div class="card h-100 shadow-sm hover-shadow">
-            <img :src="member.image" class="card-img-top" :alt="member.name" />
+            <img v-if="member.image != null" :src="member.image" class="card-img-top" :alt="member.name" />
             <div class="card-body text-center">
               <h3 class="card-title">{{ member.name }}</h3>
               <p class="card-text">{{ member.role }}</p>
@@ -125,7 +125,8 @@ import jeremy from "@/assets/team/jeremy.jpg";
 import alexis from "@/assets/team/alexis.jpg";
 import phil from "@/assets/team/phil.jpg";
 import ugo from "@/assets/team/ugo.jpg";
-import clara from "@/assets/team/clara.jpg";
+import clara from "@/assets/team/clara.png";
+import Corentin from "@/assets/team/corentin.png";
 
 export default {
   name: "AboutUs",
@@ -151,7 +152,7 @@ export default {
           role: "Responsable Marketing et Communication",
           image: clara,
         },
-        { name: "Corentin", role: "Trésorier" },
+        { name: "Corentin", role: "Trésorier" , image: Corentin},
       ],
     };
   },
