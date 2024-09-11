@@ -1,0 +1,335 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Global Styles */
+
+button {
+    width: 100%;
+    padding: .75rem;
+    font-size: 1.2rem;
+    border-radius: .25rem;
+    background-color: #4CAF50; /* Theme color */
+    border: none;
+    transition: background-color .15s ease-in-out;
+}
+
+button:hover {
+    background-color: #367c39;
+}
+
+/* Footer */
+.footer-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin: 10px;
+        width: 30%;
+
+        h4 {
+            margin-bottom: 10px;
+        }
+    }
+
+    a {
+        color: #0af;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .social-icon {
+        width: 24px;
+        height: 24px;
+        margin: 0 5px;
+    }
+
+    .footer-copyright {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+/* Navbar */
+nav .navbar-brand {
+    transition: transform 0.3s ease;
+    margin-left: 0.5em;
+    img:hover {
+        transform: scale(1.1);
+    }
+}
+
+.nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 0.7em;
+
+    &:hover,
+    &:active {
+        background-color: #358a5b;
+    }
+
+    &.router-link-exact-active {
+        font-weight: bold;
+        color: #4caf50;
+    }
+}
+
+/* Responsive adjustments */
+.container-fluid {
+
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar-toggler {
+    width: 10%;
+    margin-right: 0.5em;
+}
+
+.navbar-nav {    
+    width: 100%;
+    justify-content: space-around;
+
+    @media (min-width: 992px) {
+        justify-content: center;
+    }
+    @media (max-width: 992px) {
+        text-align: center;
+    }
+}
+
+/* Card Styles */
+.card-title {
+    font-size: 1.5em;
+    color: #4caf50;
+}
+
+.card-text {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Event Card */
+.event-card {
+    position: relative;
+    font-size: 1.2em;
+    color: #555;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        margin-bottom: 20px;
+
+        .btn-primary {
+            position: static;
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+}
+
+.btn-primary {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    &:hover {
+        background-color: #367c39;
+    }
+}
+
+.btn-outline-secondary {
+    margin-top: 10px;
+    color: #4caf50;
+    border-color: #4caf50;
+
+    &:hover {
+        background-color: #4caf50;
+        color: white;
+    }
+}
+
+/* Join Us Form */
+.join-us .form-group {
+    input,
+    textarea {
+        background-color: #f8f9fa;
+        border: 2px solid #dee2e6;
+        border-radius: .25rem;
+
+        &:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+        }
+    }
+
+    label {
+        font-weight: bold;
+        color: #4CAF50; /* Theme color */
+        display: block;
+        margin-bottom: .5rem;
+    }
+}
+
+/* Membership Info */
+.membership-info {
+    i {
+        color: #4CAF50;
+    }
+
+    h4 {
+        color: #343a40;
+        font-weight: bold;
+    }
+
+    p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+}
+
+/* Contact Section */
+.contact-container {
+    position: relative;
+    padding: 50px 0;
+    margin: 0 auto;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('@/assets/logo.png') no-repeat center center;
+        background-size: contain;
+        opacity: 0.1;
+        z-index: -1;
+    }
+
+    .contact-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .form-animate {
+        animation: fadeInUp 1s;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 40px, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+/* Home Banner */
+.home .banner {
+    background: url("@/assets/banner.webp") no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    }
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item .number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.stat-item .desc {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Call to Action */
+.cta {
+    background: #28a745;
+    color: white;
+
+    .btn-light {
+        color: #28a745;
+    }
+}
+
+/* Social Icons */
+.social-icons a {
+    color: #4caf50;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #367c39;
+    }
+}
