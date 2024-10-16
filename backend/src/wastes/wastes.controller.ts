@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 
-@Controller('user')
-export class UserController {
+@Controller('waste')
+export class WastesController {
     constructor() { }
 
     @Get()
