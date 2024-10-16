@@ -1,23 +1,25 @@
 // router/index.js
-import { createRouter, createWebHistory } from 'vue-router';
-import HomePage from '@/components/HomePage.vue';
-import AboutUs from '@/components/AboutUs.vue';
-import ActivitiesPage from '@/components/ActivitiesPage.vue';
-import JoinUs from '@/components/JoinUs.vue';
-import DonationPage from '@/components/DonationPage.vue';
-import ContactPage from '@/components/ContactPage.vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import HomePage from '@/views/HomePageView.vue';
+import AboutUs from '@/views/AboutUsView.vue';
+import ActivitiesInformations from '@/views/ActivitiesInformationsView.vue';
+import JoinUs from '@/views/JoinUsView.vue';
+import DonationPage from '@/views/DonationPageView.vue';
+import ContactPage from '@/views/ContactPageView.vue';
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const routes = [
-  { path: '/', component: HomePage },
-  { path: '/about', component: AboutUs },
-  { path: '/activities', component: ActivitiesPage },
-  { path: '/join', component: JoinUs },
-  { path: '/donation', component: DonationPage },
-  { path: '/contact', component: ContactPage, name: 'contact' }
+  { path: '/', name: 'HomePage', component: HomePage, sensitive: true },
+  { path: '/a-propos', name: 'AboutUs', component: AboutUs, sensitive: true },
+  { path: '/nos-activites', name: "ActivitiesInformations", component: ActivitiesInformations, sensitive: true },
+  { path: '/nous-rejoindre', name: "JoinUs", component: JoinUs, sensitive: true },
+  { path: '/donation', name: "DonationPage", component: DonationPage, sensitive: true },
+  { path: '/contact', name: 'ContactPage', component: ContactPage, sensitive: true },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView, sensitive: true },
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 });
 

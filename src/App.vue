@@ -1,97 +1,63 @@
-<template>
+<template>  
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <router-link class="navbar-brand" to="/">
-          <img src="@/assets/logo.png" alt="GreenWild Logo" style="height: 40px;">
-        </router-link>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <router-link class="nav-link active" aria-current="page" to="/">Accueil</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/about">À propos de nous</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/activities">Nos activités</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/join">Devenir membre</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/donation">Faire un don</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/contact">Contact</router-link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <router-view/>
-    <site-footer/>
+    <app-nav-bar />
+    <router-view />
+    <site-footer class="footer-bottom" />
   </div>
 </template>
 
 <script>
-import SiteFooter  from './components/SiteFooter.vue';
+import AppNavBar from "@/components/AppNavBar.vue";
+import SiteFooter from "@/components/SiteFooter.vue";
+import { useHead } from '@vueuse/head';
 
 export default {
   components: {
-    SiteFooter 
-  }
-}
+    SiteFooter,
+    AppNavBar,
+  },
+  setup() {
+    useHead({
+      title: 'GreenWild',      
+      meta: [
+        { charset: 'UTF-8' },
+        {
+          name: 'description',
+          content: 'GreenWild est une association écologique à but non lucratif située dans le sud de la France, dédiée à la protection de la nature à travers des randonnées et balades organisées. Rejoignez-nous pour explorer et préserver la beauté de notre planète.'
+        },
+        {
+          name: 'keywords',
+          content: 'GreenWild, sud de la France, environnement, conservation, biodiversité, écosystème, recyclage, éducation, action écologique, développement durable, respect de la nature, écologie, sensibilisation, communauté verte, engagement, durabilité, éco-responsabilité, activités en plein air, protection des ressources, initiatives écologiques, protection des espèces, réduction des déchets, nature préservée, randonnées éco-citoyennes, bénévolat écologique, protection de l\'environnement'
+        },
+        { name: 'author', content: 'GreenWild' },
+        { name: 'robots', content: 'index, follow' },
+        { name: 'language', content: 'fr' },
+        { name: 'subject', content: 'Protection de la nature et randonnée' },
+        { name: 'geo.region', content: 'FR-HER' },
+        { name: 'geo.placename', content: 'Gard' },
+        { name: 'geo.position', content: '43.6119;3.8772' },
+        { name: 'ICBM', content: '43.6119, 3.8772' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+        { 'http-equiv': 'X-XSS-Protection', content: '1; mode=block' },
+        { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },
+        { name: 'theme-color', content: '#ffffff' },
+        { name: 'application-name', content: 'GreenWild' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'apple-mobile-web-app-title', content: 'GreenWild' },
+        { property: 'og:title', content: 'GreenWild' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://greenwild.fr/' },
+        { property: 'og:image', content: '/img/logo.2f84a885.png' },
+        { property: 'og:description', content: 'GreenWild est une association écologique située dans le sud de la France, dédiée à la protection de la nature et à l\'organisation de randonnées et balades pour sensibiliser à la préservation de notre planète.' },
+        { property: 'og:site_name', content: 'GreenWild' }
+      ],
+      link: [
+        { rel: 'canonical', href: 'https://greenwild.fr/' },
+        { rel: 'icon', href: '/favicon.png', type: 'image/x-icon' }
+      ]
+    });
+  },
+  name: 'GreenWild'
+};
 </script>
-
-<style>
-nav .navbar-brand {
-  transition: transform 0.3s ease;
-}
-
-nav .navbar-brand img:hover {
-  transform: scale(1.1);
-}
-
-.nav-link {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-link:hover, .nav-link:focus {
-  background-color: #358a5b;
-  color: #fff;
-}
-
-.nav-link.router-link-exact-active {
-  font-weight: bold;
-  color: #4CAF50;
-}
-
-.navbar-toggler {
-  border-color: #4CAF50;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%234CAF50' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-/* Adjustments for centering and responsive behavior */
-.container-fluid {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.navbar-nav {
-  width: 100%;
-  justify-content: space-around;
-}
-
-@media (min-width: 992px) {
-  .navbar-nav {
-    justify-content: center;
-  }
-}
-</style>
