@@ -1,25 +1,31 @@
 {
   "events": [
     {
-      "type": "upcoming",
+      "type": "passed",
       "name": "Plateau Saint-Nicolas, Sainte-Anastasie",
       "date": "28 septembre 2024",
       "description": "Nettoyage en randonnée du plateau. Venez dans ces presque gorges du gard.",
       "location": {
         "name": "Plateau Saint-Nicolas",
-        "latLng": [43.925927, 4.362192]
+        "latLng": [
+          43.925927,
+          4.362192
+        ]
       },
-      "wasteCollected": null,
+      "wasteCollected": "3.8",
       "wasteTypes": null
     },
     {
       "type": "upcoming",
       "name": "Corbès - Grotte de Valaurie, les Cévennes",
-      "date": "Date non définie",
+      "date": "26 octobre 2024",
       "description": "Nettoyage en randonnée du site au dessus des belles grottes de Valaurie.",
       "location": {
         "name": "Valaurie",
-        "latLng": [44.093280, 3.940085]
+        "latLng": [
+          44.093280,
+          3.940085
+        ]
       },
       "wasteCollected": null,
       "wasteTypes": null
@@ -31,7 +37,10 @@
       "description": "Nettoyage en balade du site archéologique d'Ambrussum. Venez sur les plus anciennes traces d'occupation du site d'Ambrussum qui remontent à la fin de la période Néolithique (2600 avant notre ère).",
       "location": {
         "name": "Chemin d'Ambrussum",
-        "latLng": [43.7190242, 4.1480012]
+        "latLng": [
+          43.7190242,
+          4.1480012
+        ]
       },
       "wasteCollected": "0.250",
       "wasteTypes": {
@@ -48,7 +57,10 @@
       "description": "Nettoyage en randonnée. Le massif de la Gardiole est un massif situé dans le département français de l'Hérault en région Occitanie, entre Montpellier et Sète et longeant la mer Méditerranée. Il constitue l'une des dernières séries de plis créés lors du Jurassique.",
       "location": {
         "name": "Massif de la Gardiole, Gigean",
-        "latLng": [43.48, 3.730556]
+        "latLng": [
+          43.48,
+          3.730556
+        ]
       },
       "wasteCollected": null,
       "wasteTypes": null
@@ -60,7 +72,10 @@
       "description": "Nettoyage en balade du Lido. Venez pour une balade au pied des dunes et le long des plages pour préserver notre environnement.",
       "location": {
         "name": "Promenade du Lido, Sète",
-        "latLng": [43.393242, 3.660221]
+        "latLng": [
+          43.393242,
+          3.660221
+        ]
       },
       "wasteCollected": null,
       "wasteTypes": null
@@ -72,7 +87,10 @@
       "description": "Nettoyage en randonnée. Elle nous conduit jusqu'au rocher pittoresque des Deux Trous peint par Van Gogh lors se son séjour à Saint-Paul de Mausole. Elle offre de vastes panoramas sur les deux versants des Alpilles.",
       "location": {
         "name": "Rocher des Deux Trous",
-        "latLng": [43.762324, 4.84167]
+        "latLng": [
+          43.762324,
+          4.84167
+        ]
       },
       "wasteCollected": "4.5",
       "wasteTypes": {
@@ -89,13 +107,16 @@
       "description": "Découverte et nettoyage de l'une des pointes les plus célèbres de Belle-Île-en-Mer, offrant des vues spectaculaires et un riche patrimoine naturel.",
       "location": {
         "name": "Pointe des Poulains, Sauzon",
-        "latLng": [47.3893536, -3.2520276]
+        "latLng": [
+          47.3893536,
+          -3.2520276
+        ]
       },
       "wasteCollected": "0.100",
       "wasteTypes": {
         "plastique": "95",
-        "papier": "0.25",
-        "mégots": "0.25",
+        "papier": "2",
+        "mégots": "2",
         "métal": "1"
       }
     },
@@ -106,13 +127,16 @@
       "description": "Nettoyage de la plage des Galères, un site magnifique offrant des espaces naturels préservés à Belle-Île.",
       "location": {
         "name": "Plage des Galères, Sauzon",
-        "latLng": [47.310842, -3.057186]
+        "latLng": [
+          47.310842,
+          -3.057186
+        ]
       },
       "wasteCollected": "0.200",
       "wasteTypes": {
         "plastique": "95",
-        "papier": "0.25",
-        "mégots": "0.25",
+        "papier": "2",
+        "mégots": "2",
         "métal": "1"
       }
     },
@@ -123,13 +147,16 @@
       "description": "Activité de nettoyage au Port Lost-Kah, un site tranquille idéal pour des initiatives écologiques.",
       "location": {
         "name": "Port Lost-Kah, Locmaria",
-        "latLng": [47.288473, -3.1136996]
+        "latLng": [
+          47.288473,
+          -3.1136996
+        ]
       },
       "wasteCollected": "0.350",
       "wasteTypes": {
         "plastique": "95",
-        "papier": "0.25",
-        "mégots": "0.25",
+        "papier": "2",
+        "mégots": "2",
         "métal": "1"
       }
     }
