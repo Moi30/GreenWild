@@ -1,8 +1,8 @@
-import { Walk } from '@/walks/entities/walk.entity';
+import { Walks } from '@/walks/entities/walk.entity';
 import { Entity, PrimaryGeneratedColumn, Column, JoinTable, ManyToMany, CreateDateColumn } from 'typeorm';
 
 @Entity()
-export class User {
+export class Users {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -24,7 +24,7 @@ export class User {
     @Column()
     cgu_accepted: boolean;
 
-    @ManyToMany(() => Walk)
-    @JoinTable({ name: "UserWalks" })
-    walks: Walk[];
+    @ManyToMany(() => Walks)
+    @JoinTable({ name: "userWalks" })
+    walks: Walks[];
 }

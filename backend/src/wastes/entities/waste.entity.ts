@@ -1,9 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { WasteType } from '../enum/waste-type.enum';
-import { Walk } from '@/walks/entities/walk.entity';
+import { Walks } from '@/walks/entities/walk.entity';
 
 @Entity()
-export class Waste {
+export class Wastes {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -13,7 +13,7 @@ export class Waste {
     @Column({ type: 'enum', enum: WasteType })
     type: WasteType;
 
-    @ManyToOne(() => Walk, (walk) => walk.wastes)
+    @ManyToOne(() => Walks, (walk) => walk.wastes)
     @JoinColumn()
-    walk: Walk;
+    walk: Walks;
 }

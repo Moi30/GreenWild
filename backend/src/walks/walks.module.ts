@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Walk } from './entities/walk.entity';
+import { Walks } from './entities/walk.entity';
 import { WalksService } from './walks.service';
 import { WalksController } from './walks.controller';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Walk])],
+    imports: [TypeOrmModule.forFeature([Walks])],
     controllers: [WalksController],
     providers: [WalksService],
 })

@@ -2,20 +2,29 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Walk } from './entities/walk.entity';
+import { Walks } from './entities/walk.entity';
+import { WalkState } from './enum/walk-state.enum';
 
 @Injectable()
 export class WalksService {
     constructor(
-        @InjectRepository(Walk)
-        private walksRepository: Repository<Walk>,
+        @InjectRepository(Walks)
+        private walksRepository: Repository<Walks>,
     ) { }
 
-    findAll(): Promise<Walk[]> {
+    create(walk: Walks): Promise<Walks> {
+        return this.walksRepository.save(walk);
+    }
+
+    update(walk: Walks): Promise<Walks> {
+        return this.walksRepository.save(walk);
+    }
+
+    findAll(): Promise<Walks[]> {
         return this.walksRepository.find();
     }
 
-    findOne(id: number): Promise<Walk | null> {
+    findOne(id: number): Promise<Walks | null> {
         return this.walksRepository.findOneBy({ id });
     }
 
